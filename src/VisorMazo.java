@@ -1,4 +1,5 @@
 
+
 import javax.json.Json;
 import javax.json.JsonArray;
 import javax.json.JsonObject;
@@ -7,6 +8,8 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.HashMap;
 
 public class VisorMazo {
 
@@ -37,10 +40,41 @@ public class VisorMazo {
             e.printStackTrace();
         }
     }
+    
+    @SuppressWarnings("unchecked")
+	public static MazoCartas obtenerMazo(String jsonFile) {
+        //URL url = getClass().getResource(jsonFile);
+        File jsonInputFile = new File(jsonFile);
+        InputStream is;
+        try {
+            is = new FileInputStream(jsonInputFile);
+            // Creo el objeto JsonReader de Json.
+            JsonReader reader = Json.createReader(is);
+            // Obtenemos el JsonObject a partir del JsonReader.
+            JsonArray cartasJson = (JsonArray) reader.readObject().getJsonArray("cartas");
+            ArrayList<Carta> cartas = new ArrayList<Carta>();
+            for (JsonObject cartaJson : cartasJson.getValuesAs(JsonObject.class)) {
+            	JsonObject atributos = (JsonObject) cartaJson.getJsonObject("atributos");
+            	HashMap<String,Long> atributosMap = new HashMap<String,Long>();
+            	for (String nombreAtributo:atributos.keySet()) {
+            		atributosMap.put(nombreAtributo,Long.parseLong( atributos.get(nombreAtributo).toString()));
+            		
+            	}
+                cartas.add(new Carta(cartaJson.getString("nombre"),atributosMap));
 
+             }
+            MazoCartas mazo = new MazoCartas(cartas);
+            reader.close();
+            return mazo;
+        } catch (FileNotFoundException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+            return null;
+        }
+    }
+/*
     public static void main(String[] args) {
         String mazoPath = "./superheroes.json";
         VisorMazo.mostrarMazo(mazoPath);
-    }
-
+    }*/
 }

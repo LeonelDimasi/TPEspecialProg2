@@ -33,7 +33,7 @@ public class Carta {
 	}  
 	
 	public Boolean mejorCarta(String nombreAtributo, Long valor) {
-		
+		return true;
 	}
 	
 }

@@ -5,6 +5,11 @@ public class MazoCartas {
 	private List<Carta> mazoCartas;
 	
 	
+	public MazoCartas(List<Carta> mazoCartas) {
+		super();
+		this.mazoCartas = mazoCartas;
+	}
+
 	public Boolean VerificarCartas() {
 		
 	//(mismos atributos y cantidad)	

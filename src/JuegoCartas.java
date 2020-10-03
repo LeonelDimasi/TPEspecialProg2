@@ -5,14 +5,14 @@ public class JuegoCartas {
 	private static final int CANT_RONDAS = 10;
 	private MazoCartas mazoCartas;
 	
-	JuegoCartas(mazoCartas){
+	JuegoCartas(MazoCartas mazoCartas){
 		this.mazoCartas = mazoCartas;
 	}
 	
 	
-	public void repartirCartas(j1,j2) {
+	public void repartirCartas(Jugador j1, Jugador j2) {
 		if(esImpar(this.mazoCartas.cantidadCartas())) {
-			j1 tiene una carta mas
+			//j1 tiene una carta mas
 		}
 	}
 	

@@ -4,10 +4,17 @@ public class Main {
 
 	public static void main(String[] args) {
 		
-		JuegoCartas juego = new JuegoCartas();
+		Jugador j1 = new Jugador("Juan");
+		Jugador j2 = new Jugador("Maria");
+		JuegoCartas juego = new JuegoCartas(VisorMazo.obtenerMazo("src/superheroes.json"));
+		
+		juego.repartirCartas(j1, j2);
 		
 
 	}
+	
+	
+	       
 	
 	/*
 	el primer jugador toma la primera carta en su posesión 
