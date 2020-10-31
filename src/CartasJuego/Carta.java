@@ -55,6 +55,7 @@ public class Carta {
 	public boolean containAtributo(String nombre) {
 		return atributos.containsKey(nombre);
 	}
+	
 	public boolean equals(Carta c) {
 		if (this.getCantidadAtributos() == c.getCantidadAtributos()) {			
 			for (String atributo : atributos.keySet()) {

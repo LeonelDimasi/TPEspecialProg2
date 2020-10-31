@@ -18,6 +18,7 @@ public class JuegoCartas {
 		this.nombreJ1 = j1.getNombre();
 		this.nombreJ2= j2.getNombre();
 	}
+	
 	public void jugar() {
 		this.prepararPartida();
 		if (jugadoresAptos()){
@@ -35,13 +36,16 @@ public class JuegoCartas {
 			System.out.println("Imposible jugar con este mazo");			
 		}
 	}
+	
 	public boolean hayGanador() {
 		return (!this.j1.hayCartas()||!this.j2.hayCartas());
 	}
+	
 	private void prepararPartida() {
 		this.mazocartas.barajar();
 		this.mazocartas.repartir(j1,j2);
 	}
+	
 	public Jugador getGanador() {
 		if (this.j1.CantidadCartas() == this.j2.CantidadCartas()) {
 			return null;
@@ -50,15 +54,19 @@ public class JuegoCartas {
 		} else
 			return this.j2;
 	}
+	
 	public Jugador getTurno() {
 		return this.turno;
 	}
+	
 	public void cambiarMazo(MazoCartas nuevoMazo) {
 		this.mazocartas = nuevoMazo;
 	}
+	
 	public boolean jugadoresAptos() {
 		return (this.j1.hayCartas()&&this.j2.hayCartas());
 	}
+	
 	protected void jugarMano() {
 		Carta c1 = this.j1.tomarCarta();			
 		Carta c2 = this.j2.tomarCarta();
@@ -96,7 +104,7 @@ public class JuegoCartas {
 			this.j1.addCarta(c1);
 			this.j1.addCarta(c2);
 			this.turno = j1;
-		}else {
+		}else {//revisar 
 			this.j1.addCarta(c1);
 			this.j2.addCarta(c2);
 		}

@@ -30,7 +30,7 @@ public class MazoCartas {
 		if (this.vacio()) {
 			this.mazo.add(c);
 			return true;
-		}else if (c.equals(this.mazo.get(PRIMERA))) {
+		}else if (c.equals(this.mazo.get(PRIMERA))) {//revisar
 			this.mazo.add(c);
 			return true;
 		}else {
@@ -50,17 +50,32 @@ public class MazoCartas {
 	public void repartir(Jugador j1,Jugador j2) {
 		int tamaño;
 		int i = 0;
-		if (this.mazo.size() % ESPAR != 0) {
-			tamaño = this.mazo.size() - 1;
-		}else {
+		//if (this.mazo.size() % ESPAR != 0) {
+			
 			tamaño = this.mazo.size();
-		}
-		while (i < tamaño) {
-			j1.addCarta(this.mazo.get(i));
-			i++;
-			j2.addCarta(this.mazo.get(i));
-			i++;
-		}
+			while (i < tamaño) {
+				
+				j1.addCarta(this.mazo.get(i));
+				i++;
+				if(i < tamaño) {
+					j2.addCarta(this.mazo.get(i));
+					i++;
+				}
+				
+			}
+		//}
+		/*else {
+			tamaño = this.mazo.size();
+			while (i < tamaño) {
+				j1.addCarta(this.mazo.get(i));
+				i++;
+				j2.addCarta(this.mazo.get(i));
+				i++;
+			}*/
+		//}
+		
+		
+		
 	}
 	
 	public boolean vacio() {

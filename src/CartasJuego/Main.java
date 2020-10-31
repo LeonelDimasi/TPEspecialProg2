@@ -7,6 +7,15 @@ public class Main {
 	public static void main(String[] args) {
 		
 		
+		
+		
+		
+		
+		
+		//MazoCartas mazoAlterado = VisorMazo.obtenerMazo("src/superheroes.json");
+		
+		//mazoAlterado.setPocima(pocima);
+		
 		JuegoCartas juego = new JuegoCartas("juan","maria",VisorMazo.obtenerMazo("src/superheroes.json"));
 		
 		juego.jugar();
