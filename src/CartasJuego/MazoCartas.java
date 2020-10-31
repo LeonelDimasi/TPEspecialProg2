@@ -2,7 +2,6 @@ package CartasJuego;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.List;
 
 import FiltrosCartas.Filtro;
 
@@ -13,16 +12,20 @@ public class MazoCartas {
 	private final int ESPAR = 2;
 	private String nombreMazo;
 	private ArrayList<Carta> mazo;
+	
 	public MazoCartas() {
 		this.nombreMazo = "";
 		this.mazo = new ArrayList<Carta>();
 	}	
+	
 	public void setNombreMazo(String nombreMazo){
 		this.nombreMazo=nombreMazo;
 	}
+	
 	public String getNombreMazo(){
 		return nombreMazo;
 	}
+	
 	public boolean addCarta(Carta c) {
 		if (this.vacio()) {
 			this.mazo.add(c);
@@ -34,6 +37,7 @@ public class MazoCartas {
 			return false;
 		}		
 	}
+	
 	public Carta tomarPrimera() {
 		if (!this.mazo.isEmpty()){
 			Carta c = this.mazo.get(PRIMERA);
@@ -42,6 +46,7 @@ public class MazoCartas {
 		}else
 			return null;
 	}
+	
 	public void repartir(Jugador j1,Jugador j2) {
 		int tamaño;
 		int i = 0;
@@ -57,15 +62,19 @@ public class MazoCartas {
 			i++;
 		}
 	}
+	
 	public boolean vacio() {
 		return this.mazo.isEmpty();
 	}
+	
 	public void vaciarMazo() {
 		this.mazo.clear();
 	}
+	
 	public int getTamañoMazo(){
 		return mazo.size();
-}
+	}
+	
 	public String toString(){ 
 		String datosMazo = "";
 		datosMazo += this.nombreMazo + "\n";
@@ -76,6 +85,7 @@ public class MazoCartas {
 			}
 		return datosMazo;
 	}
+	
 	public void barajar() {   
 		Collections.shuffle(mazo);
 	}

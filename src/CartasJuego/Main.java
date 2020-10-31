@@ -6,12 +6,10 @@ public class Main {
 
 	public static void main(String[] args) {
 		
-		Jugador j1 = new Jugador("Juan");
-		Jugador j2 = new Jugador("Maria");
-		JuegoCartas juego = new JuegoCartas(VisorMazo.obtenerMazo("src/superheroes.json"));
-		juego.imprimirRonda();
-		//juego.repartirCartas(j1, j2);
-		System.out.println("Jugador:" +j1.getNombre());
+		
+		JuegoCartas juego = new JuegoCartas("juan","maria",VisorMazo.obtenerMazo("src/superheroes.json"));
+		
+		juego.jugar();
 	}
 	
 	

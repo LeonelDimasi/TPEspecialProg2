@@ -43,7 +43,7 @@ public class VisorMazo {
         }
     }
     
-    @SuppressWarnings("unchecked")
+    //@SuppressWarnings("unchecked")
 	public static MazoCartas obtenerMazo(String jsonFile) {
         //URL url = getClass().getResource(jsonFile);
         File jsonInputFile = new File(jsonFile);

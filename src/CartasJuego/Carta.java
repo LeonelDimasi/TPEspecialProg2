@@ -14,7 +14,7 @@ public class Carta {
 	
 	public Carta(String nombre,HashMap<String,Integer> atributos){
 		this.nombre=nombre;
-		this.atributos = new HashMap<String, Integer>(); 
+		this.atributos = atributos; 
 
 	}
 	public void setNombre (String nombre) {

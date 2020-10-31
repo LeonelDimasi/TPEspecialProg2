@@ -1,6 +1,5 @@
 package CartasJuego;
 
-import java.util.List;
 
 public class Jugador {
 	
