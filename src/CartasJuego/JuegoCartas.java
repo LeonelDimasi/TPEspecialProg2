@@ -1,3 +1,4 @@
+package CartasJuego;
 
 public class JuegoCartas {
 	
@@ -10,11 +11,11 @@ public class JuegoCartas {
 	}
 	
 	
-	public void repartirCartas(Jugador j1, Jugador j2) {
-		if(esImpar(this.mazoCartas.cantidadCartas())) {
-			//j1 tiene una carta mas
-		}
-	}
+//	public void repartirCartas(Jugador j1, Jugador j2) {
+//		if(esImpar(this.mazoCartas.cantidadCartas())) {
+//			//j1 tiene una carta mas
+//		}
+//	}
 	
 	public boolean esImpar(int iNumero) {
 		  if (iNumero%2!=0)

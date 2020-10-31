@@ -1,3 +1,5 @@
+package CartasJuego;
+
 
 public class Main {
 	//Ayudante Andres
@@ -7,10 +9,9 @@ public class Main {
 		Jugador j1 = new Jugador("Juan");
 		Jugador j2 = new Jugador("Maria");
 		JuegoCartas juego = new JuegoCartas(VisorMazo.obtenerMazo("src/superheroes.json"));
-		
-		juego.repartirCartas(j1, j2);
-		
-
+		juego.imprimirRonda();
+		//juego.repartirCartas(j1, j2);
+		System.out.println("Jugador:" +j1.getNombre());
 	}
 	
 	

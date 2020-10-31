@@ -1,9 +1,11 @@
+package CartasJuego;
 
 
 import javax.json.Json;
 import javax.json.JsonArray;
 import javax.json.JsonObject;
 import javax.json.JsonReader;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -55,15 +57,18 @@ public class VisorMazo {
             ArrayList<Carta> cartas = new ArrayList<Carta>();
             for (JsonObject cartaJson : cartasJson.getValuesAs(JsonObject.class)) {
             	JsonObject atributos = (JsonObject) cartaJson.getJsonObject("atributos");
-            	HashMap<String,Long> atributosMap = new HashMap<String,Long>();
+            	HashMap<String, Integer> atributosMap = new HashMap<String,Integer>();
             	for (String nombreAtributo:atributos.keySet()) {
-            		atributosMap.put(nombreAtributo,Long.parseLong( atributos.get(nombreAtributo).toString()));
+            		atributosMap.put(nombreAtributo,Integer.parseInt( atributos.get(nombreAtributo).toString()));
             		
             	}
                 cartas.add(new Carta(cartaJson.getString("nombre"),atributosMap));
 
              }
-            MazoCartas mazo = new MazoCartas(cartas);
+            MazoCartas mazo = new MazoCartas();
+            for(Carta carta:cartas){
+            	mazo.addCarta(carta);
+            }
             reader.close();
             return mazo;
         } catch (FileNotFoundException e) {
