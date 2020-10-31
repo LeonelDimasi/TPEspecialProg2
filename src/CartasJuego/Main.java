@@ -16,7 +16,7 @@ public class Main {
 		
 		//mazoAlterado.setPocima(pocima);
 		
-		JuegoCartas juego = new JuegoCartas("juan","maria",VisorMazo.obtenerMazo("src/superheroes.json"));
+		JuegoCartas juego = new JuegoCartas("juan","maria",VisorMazo.obtenerMazo("src/superheroes.json"),10);
 		
 		juego.jugar();
 	}

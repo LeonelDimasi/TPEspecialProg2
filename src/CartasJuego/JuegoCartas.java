@@ -9,32 +9,54 @@ public class JuegoCartas {
 	private Jugador turno;
 	private String jugadorGanador;
 	private MazoCartas mazocartas;
+	private int rondaActual;
+	private int rondasMaximas;
+
 	
-	public JuegoCartas(String n1, String n2, MazoCartas mazocartas) {
+	public JuegoCartas(String n1, String n2, MazoCartas mazocartas,int rondas) {
 		this.j1 = new Jugador(n1);
 		this.j2 = new Jugador(n2);
 		this.mazocartas = mazocartas;
 		this.turno = j1;
 		this.nombreJ1 = j1.getNombre();
 		this.nombreJ2= j2.getNombre();
+		this.rondasMaximas=rondas+1;
+		this.rondaActual=1;
+	}
+	public void setRondas(int rondas){
+		this.rondasMaximas=rondas;
+	}
+	
+	private int getRondas() {	
+		return this.rondasMaximas;
 	}
 	
 	public void jugar() {
 		this.prepararPartida();
 		if (jugadoresAptos()){
-			while (!hayGanador()) {
-				jugarMano();
-			}
-			if (getGanador() == null) {
-				System.out.println("Empataron");
-			}else {
-				jugadorGanador = this.getGanador().getNombre();
+				while (!hayGanador()&& this.getRondas()!=this.getRondaActual()) {
+					jugarMano();
+				}
+				if (getGanador() == null) {
+					System.out.println("Empataron");
+				}else {
+					jugadorGanador = this.getGanador().getNombre();
+					System.out.println("----------------------------------");
+					System.out.println("La partida la gano "+ jugadorGanador);
+				}
+			}	
+				else{
 				System.out.println("----------------------------------");
 				System.out.println("La partida la gano "+ jugadorGanador);
-			}
-		}else {
-			System.out.println("Imposible jugar con este mazo");			
-		}
+				}
+		
+//		else{
+//			jugadorGanador = this.getGanador().getNombre();
+//			if(jugadorGanador==null){
+//				System.out.println("Empataron");
+//			}
+			//System.out.println("Imposible jugar con este mazo");			
+		
 	}
 	
 	public boolean hayGanador() {
@@ -89,20 +111,23 @@ public class JuegoCartas {
 		valorAtributoJ1 = c1.getValorAtributo(a);
 		valorAtributoJ2 = c2.getValorAtributo(a);
 		System.out.println("----------------------------------");
+		System.out.println("Ronda nro: "+this.getRondaActual());
 		System.out.println("Es el Turno de " + (this.getTurno().getNombre()));
 		System.out.println("La carta de " + this.nombreJ1 + " es " + nombreCartaJ1);
 		System.out.println("La carta de " + this.nombreJ2 + " es " + nombreCartaJ2);
 		System.out.println("El atributo a comparar es " + nombreAtributo);
-		System.out.println(nombreAtributo + " J1: " + valorAtributoJ1);
-		System.out.println(nombreAtributo + " J2: " + valorAtributoJ2);		
+		System.out.println(nombreAtributo + " jugador 1 ("+ j1.getNombre()+") :" + valorAtributoJ1);
+		System.out.println(nombreAtributo + " jugador 2 ("+j2.getNombre()+"):" + valorAtributoJ2);		
 		
 		if (c1.isMenor(a,c2)) { 			
 			this.j2.addCarta(c1); 
 			this.j2.addCarta(c2);
+			System.out.println("Ganó la ronda el jugador 2(" + j2.getNombre()+")");
 			this.turno = j2;
 		}else if (c2.isMenor(a,c1)) {
 			this.j1.addCarta(c1);
 			this.j1.addCarta(c2);
+			System.out.println("Ganó la ronda el jugador 1(" +j1.getNombre()+")");
 			this.turno = j1;
 		}else {//revisar 
 			this.j1.addCarta(c1);
@@ -110,8 +135,17 @@ public class JuegoCartas {
 		}
 		cantCartasJ1 = j1.CantidadCartas();
 		cantCartasJ2 = j2.CantidadCartas();
-		System.out.println("El jugador uno tiene " + cantCartasJ1 + " cartas");
-		System.out.println("El jugador dos tiene " + cantCartasJ2 + " cartas");
+		System.out.println("El jugador 1(" + j1.getNombre()+") tiene " + cantCartasJ1 + " cartas");
+		System.out.println("El jugador 2(" +j2.getNombre() + ") tiene " + cantCartasJ2 + " cartas");
+		this.setRondaActual(this.getRondaActual()+1);
+
 	}
+	public int getRondaActual() {
+		return rondaActual;
+	}
+	public void setRondaActual(int rondaActual) {
+		this.rondaActual = rondaActual;
+	}
+	
 
 }
