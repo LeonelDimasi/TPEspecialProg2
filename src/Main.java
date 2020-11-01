@@ -34,10 +34,10 @@ public class Main {
 	       
 	
 	/*
-	el primer jugador toma la primera carta en su posesión 
+	el primer jugador toma la primera carta en su posesiï¿½n 
 	El jugador que posea la carta con mayor valor para ese atributo se lleva las dos cartas
 	(se colocan al final de su mazo)
-	y también tiene el turno en la siguiente ronda. jugadorGanador.setTurno(true)
+	y tambiï¿½n tiene el turno en la siguiente ronda. jugadorGanador.setTurno(true)
 	
 	if (!j1.getCartas()!=null || j2.getCartas() != null ) || (juego.getRondas()< rondasmaxima){
 		
