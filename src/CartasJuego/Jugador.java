@@ -1,14 +1,19 @@
 package CartasJuego;
 
+import EstrategiaJugador.Estrategia;
 
 public class Jugador {
 	
 	private String nombre;
 	private MazoCartas cartasJugador;
+	private Estrategia estrategia;
 	
-	public Jugador(String n) {
+	
+
+	public Jugador(String n,Estrategia estrategia) {
 		this.nombre = n;
 		this.cartasJugador = new MazoCartas();
+		this.estrategia = estrategia;
 	}
 	
 	public String getNombre() {
@@ -33,11 +38,19 @@ public class Jugador {
 	}
 	
 	public String elegirAtributo(Carta c) {
-		return c.atributoAzar();
+		return estrategia.getAtributo(c);
 	}
 	
 	public int CantidadCartas(){ 
 		return cartasJugador.getTamañoMazo();
+	}
+	
+	public Estrategia getEstrategia() {
+		return estrategia;
+	}
+
+	public void setEstrategia(Estrategia estrategia) {
+		this.estrategia = estrategia;
 	}
 
 }

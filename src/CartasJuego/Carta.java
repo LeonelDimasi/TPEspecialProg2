@@ -3,6 +3,8 @@ package CartasJuego;
 import java.util.HashMap;
 import java.util.Iterator;
 
+import Pocimas.Pocima;
+
 public class Carta {
 	
 	private String nombre;
@@ -25,7 +27,7 @@ public class Carta {
 		return this.getValorAtributo(nombre)<c.getValorAtributo(nombre);
 	}	
 	
-	public String atributoAzar() {
+	/*public String atributoAzar() {
 		String clave = "";
 		int r= (int) (Math.random() * (this.getCantidadAtributos()));
 
@@ -38,7 +40,7 @@ public class Carta {
 	
 		}
 		return clave;
-	}
+	}*/
 	
 	public void addAtributo(String nombre, int valor) {
 		this.atributos.put(nombre, valor);
@@ -75,6 +77,10 @@ public class Carta {
 		}
 	}
 	
+	public HashMap<String, Integer> getAtributos() {
+		return new HashMap<String, Integer>(atributos);
+	}
+
 	public int getCantidadAtributos() { 		
 		return this.atributos.size();
 	}
@@ -87,6 +93,10 @@ public class Carta {
 			datosCarta += " - " + atributo + " = " + atributos.get(atributo) + "\n";
 		}
 		return datosCarta;
+	}
+	
+	public void addPocima(Pocima pocima) {
+		pocima.aplicarPocima(this);
 	}
 	
 }

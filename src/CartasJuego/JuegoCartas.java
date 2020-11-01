@@ -10,9 +10,9 @@ public class JuegoCartas {
 	private String jugadorGanador;
 	private MazoCartas mazocartas;
 	
-	public JuegoCartas(String n1, String n2, MazoCartas mazocartas) {
-		this.j1 = new Jugador(n1);
-		this.j2 = new Jugador(n2);
+	public JuegoCartas(Jugador j1, Jugador j2, MazoCartas mazocartas) {
+		this.j1 = j1;
+		this.j2 = j2; 
 		this.mazocartas = mazocartas;
 		this.turno = j1;
 		this.nombreJ1 = j1.getNombre();
