@@ -96,8 +96,8 @@ public class JuegoCartas {
 		String nombreCartaJ1 = c1.getNombre();
 		String nombreCartaJ2 = c2.getNombre();
 		String nombreAtributo;
-		int valorAtributoJ1;
-		int valorAtributoJ2;
+		Double valorAtributoJ1;
+		Double valorAtributoJ2;
 		int cantCartasJ1;
 		int cantCartasJ2;
 

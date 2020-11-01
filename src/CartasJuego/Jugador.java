@@ -7,6 +7,7 @@ public class Jugador {
 	private String nombre;
 	private MazoCartas cartasJugador;
 	private Estrategia estrategia;
+	private String atributoElegido;
 	
 	
 
@@ -38,7 +39,8 @@ public class Jugador {
 	}
 	
 	public String elegirAtributo(Carta c) {
-		return estrategia.getAtributo(c);
+		atributoElegido = estrategia.getAtributo(c);
+		return atributoElegido;
 	}
 	
 	public int CantidadCartas(){ 
@@ -52,5 +54,10 @@ public class Jugador {
 	public void setEstrategia(Estrategia estrategia) {
 		this.estrategia = estrategia;
 	}
+
+	public String getAtributoElegido() {
+		return this.atributoElegido;
+	}
+
 
 }

@@ -57,9 +57,9 @@ public class VisorMazo {
             ArrayList<Carta> cartas = new ArrayList<Carta>();
             for (JsonObject cartaJson : cartasJson.getValuesAs(JsonObject.class)) {
             	JsonObject atributos = (JsonObject) cartaJson.getJsonObject("atributos");
-            	HashMap<String, Integer> atributosMap = new HashMap<String,Integer>();
+            	HashMap<String, Double> atributosMap = new HashMap<String,Double>();
             	for (String nombreAtributo:atributos.keySet()) {
-            		atributosMap.put(nombreAtributo,Integer.parseInt( atributos.get(nombreAtributo).toString()));
+            		atributosMap.put(nombreAtributo,Double.parseDouble( atributos.get(nombreAtributo).toString()));
             		
             	}
                 cartas.add(new Carta(cartaJson.getString("nombre"),atributosMap));

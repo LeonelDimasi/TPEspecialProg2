@@ -4,8 +4,6 @@ package Pocimas;
 
 import CartasJuego.Carta;
 
-public abstract class Pocima {
-
-	public abstract void aplicarPocima(Carta carta);
-
+public interface Pocima {
+	public void aplicarPocima(Carta carta);
 }
