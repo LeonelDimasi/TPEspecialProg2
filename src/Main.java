@@ -22,7 +22,7 @@ public class Main {
 		//mazoAlterado.setPocima(pocima);
 		Jugador j1 = new Jugador("juan",new EstrategiaTimbero());
 		Jugador j2 = new Jugador("maria",new EstrategiaAmbicioso());
-		JuegoCartas juego = new JuegoCartas(j1,j2,VisorMazo.obtenerMazo("src/superheroes.json"));
+		JuegoCartas juego = new JuegoCartas(j1,j2,VisorMazo.obtenerMazo("src/superheroes.json"),10);
 		
 		juego.jugar();
 		

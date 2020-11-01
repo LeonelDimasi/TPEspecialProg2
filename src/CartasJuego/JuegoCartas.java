@@ -122,12 +122,12 @@ public class JuegoCartas {
 		if (c1.isMenor(a,c2)) { 			
 			this.j2.addCarta(c1); 
 			this.j2.addCarta(c2);
-			System.out.println("Gan� la ronda el jugador 2(" + j2.getNombre()+")");
+			System.out.println("Gano la ronda el jugador 2(" + j2.getNombre()+")");
 			this.turno = j2;
 		}else if (c2.isMenor(a,c1)) {
 			this.j1.addCarta(c1);
 			this.j1.addCarta(c2);
-			System.out.println("Gan� la ronda el jugador 1(" +j1.getNombre()+")");
+			System.out.println("Gano la ronda el jugador 1(" +j1.getNombre()+")");
 			this.turno = j1;
 		}else {//revisar 
 			this.j1.addCarta(c1);
