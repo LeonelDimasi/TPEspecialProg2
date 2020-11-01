@@ -3,9 +3,6 @@ package CartasJuego;
 import java.util.ArrayList;
 import java.util.Collections;
 
-import FiltrosCartas.Filtro;
-
-
 public class MazoCartas {
 	
 	private final int PRIMERA = 0;
@@ -105,7 +102,7 @@ public class MazoCartas {
 		Collections.shuffle(mazo);
 	}
 	
-	public MazoCartas getCartas(Filtro filtro){
+	/*public MazoCartas getCartas(Filtro filtro){
 		MazoCartas nuevoMazo = new MazoCartas();
 		
 		for (Carta carta : mazo) {
@@ -115,6 +112,10 @@ public class MazoCartas {
 			}
 		}
 		return nuevoMazo;
+	}*/
+	
+	public ArrayList<Carta> getCartas(){
+		return new ArrayList<Carta>(this.mazo);
 	}
 
 }

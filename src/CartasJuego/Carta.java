@@ -3,17 +3,19 @@ package CartasJuego;
 import java.util.HashMap;
 import java.util.Iterator;
 
+import Pocimas.Pocima;
+
 public class Carta {
 	
 	private String nombre;
-	private HashMap<String, Integer> atributos;
+	private HashMap<String, Double> atributos;
 
 	public Carta(){ 
-		this.atributos = new HashMap<String, Integer>(); 
+		this.atributos = new HashMap<String, Double>(); 
 	}
 	
-	public Carta(String nombre,HashMap<String,Integer> atributos){
-		this.nombre=nombre;
+	public Carta(String nombre,HashMap<String,Double> atributos){
+		this.nombre = nombre;
 		this.atributos = atributos; 
 
 	}
@@ -25,7 +27,7 @@ public class Carta {
 		return this.getValorAtributo(nombre)<c.getValorAtributo(nombre);
 	}	
 	
-	public String atributoAzar() {
+	/*public String atributoAzar() {
 		String clave = "";
 		int r= (int) (Math.random() * (this.getCantidadAtributos()));
 
@@ -38,13 +40,13 @@ public class Carta {
 	
 		}
 		return clave;
-	}
+	}*/
 	
-	public void addAtributo(String nombre, int valor) {
+	public void addAtributo(String nombre, Double valor) {
 		this.atributos.put(nombre, valor);
 	}
 
-	public int getValorAtributo(String nombre) {
+	public Double getValorAtributo(String nombre) {
 		return this.atributos.get(nombre);
 	}
 		
@@ -75,6 +77,10 @@ public class Carta {
 		}
 	}
 	
+	public HashMap<String, Double> getAtributos() {
+		return new HashMap<String, Double>(atributos);
+	}
+
 	public int getCantidadAtributos() { 		
 		return this.atributos.size();
 	}
@@ -87,6 +93,16 @@ public class Carta {
 			datosCarta += " - " + atributo + " = " + atributos.get(atributo) + "\n";
 		}
 		return datosCarta;
+	}
+	
+	public void addPocima(Pocima pocima) {
+		pocima.aplicarPocima(this);
+	}
+	
+	public void cambiarValorAributo(String atributo, Double valor) {
+		if(this.containAtributo(atributo)){
+			this.atributos.replace(atributo, valor);
+		}
 	}
 	
 }

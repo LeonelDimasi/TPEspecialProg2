@@ -428,6 +428,16 @@
           "peleas ganadas": 997,
           "velocidad": 130
         }
+      },
+      {
+        "nombre": "Toto",
+        "atributos": {
+          "altura": 240,
+          "peso": 450,
+          "fuerza": 25000,
+          "peleas ganadas": 997,
+          "velocidad": 130
+        }
       }
       
     ]

@@ -13,9 +13,9 @@ public class JuegoCartas {
 	private int rondasMaximas;
 
 	
-	public JuegoCartas(String n1, String n2, MazoCartas mazocartas,int rondas) {
-		this.j1 = new Jugador(n1);
-		this.j2 = new Jugador(n2);
+	public JuegoCartas(Jugador j1, Jugador j2, MazoCartas mazocartas,int rondas) {
+		this.j1 = j1;
+		this.j2 = j2; 
 		this.mazocartas = mazocartas;
 		this.turno = j1;
 		this.nombreJ1 = j1.getNombre();
@@ -96,8 +96,8 @@ public class JuegoCartas {
 		String nombreCartaJ1 = c1.getNombre();
 		String nombreCartaJ2 = c2.getNombre();
 		String nombreAtributo;
-		int valorAtributoJ1;
-		int valorAtributoJ2;
+		Double valorAtributoJ1;
+		Double valorAtributoJ2;
 		int cantCartasJ1;
 		int cantCartasJ2;
 
@@ -122,12 +122,12 @@ public class JuegoCartas {
 		if (c1.isMenor(a,c2)) { 			
 			this.j2.addCarta(c1); 
 			this.j2.addCarta(c2);
-			System.out.println("Ganó la ronda el jugador 2(" + j2.getNombre()+")");
+			System.out.println("Gano la ronda el jugador 2(" + j2.getNombre()+")");
 			this.turno = j2;
 		}else if (c2.isMenor(a,c1)) {
 			this.j1.addCarta(c1);
 			this.j1.addCarta(c2);
-			System.out.println("Ganó la ronda el jugador 1(" +j1.getNombre()+")");
+			System.out.println("Gano la ronda el jugador 1(" +j1.getNombre()+")");
 			this.turno = j1;
 		}else {//revisar 
 			this.j1.addCarta(c1);
