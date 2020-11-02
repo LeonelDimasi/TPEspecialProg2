@@ -1,6 +1,7 @@
 package CartasJuego;
 
 import EstrategiaJugador.Estrategia;
+import Pocimas.Pocima;
 
 public class Jugador {
 	
@@ -58,6 +59,12 @@ public class Jugador {
 	public String getAtributoElegido() {
 		return this.atributoElegido;
 	}
-
+	public Carta aplicarPocima(Carta carta) {
+		Carta cartaAux=carta.copiarCarta();
+		if(cartaAux.getPocima()!=null){
+			cartaAux.getPocima().aplicarPocima(cartaAux,this.getAtributoElegido());
+		}
+		return cartaAux;
+	}
 
 }

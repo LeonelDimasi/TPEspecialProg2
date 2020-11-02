@@ -21,19 +21,21 @@ public class EstrategiaAmbicioso extends Estrategia{
 	@Override
 	public String getAtributo(Carta c) {
 		String clave = "";
+		String claveaxu="";
 		Double valorMaximo = 0D;
 		Iterator<String> it = c.getAtributos().keySet().iterator();
 		
 		while(it.hasNext()) {	
-			if(c.getAtributos().get(it.next()) >= valorMaximo ) {
-				clave = it.next();
+			clave = it.next();
+			if(c.getAtributos().get(clave) >= valorMaximo ) {
+				claveaxu=clave;
 				valorMaximo = c.getAtributos().get(clave);
 				
 			}
 			
 		}
 		
-		return clave;
+		return claveaxu;
 	}
 
 }

@@ -18,10 +18,12 @@ public class PocimaCompuesta implements Pocima{
 		this.pocimas.add(pocima);
 	}
 	
-	public void aplicarPocima(Carta carta) {
+	public Carta aplicarPocima(Carta carta,String atributo) {
+		Carta cartaAux=carta.copiarCarta();
 		for(Pocima pocima: this.getPocimas()) {
-			carta.addPocima(pocima);
+			cartaAux.addPocima(pocima);
 		}
+		return cartaAux;
 	}
 	
 	public String getNombre() {

@@ -34,6 +34,8 @@ public class JuegoCartas {
 	public void jugar() {
 		this.prepararPartida();
 		if (jugadoresAptos()){
+			System.out.println("La estrategia usada por el jugador 1 ("+ j1.getNombre()+"), es " +j1.getEstrategia().getNombre());
+			System.out.println("La estrategia usada por el jugador 2 ("+ j2.getNombre()+"), es " +j2.getEstrategia().getNombre());
 				while (!hayGanador()&& this.getRondas()!=this.getRondaActual()) {
 					jugarMano();
 				}
@@ -100,31 +102,42 @@ public class JuegoCartas {
 		Double valorAtributoJ2;
 		int cantCartasJ1;
 		int cantCartasJ2;
+		Carta c1ConPocima;
+		Carta c2ConPocima;
 
 		if (this.getTurno().equals(j1)) {
 			a = this.j1.elegirAtributo(c1);
+			//c1ConPocima=this.j1.aplicarPocima(c1);
+				
 		}else {	
 			a = this.j2.elegirAtributo(c2);
+			//c2ConPocima=this.j2.aplicarPocima(c2);
 		}
-		
+		c1ConPocima=this.j1.aplicarPocima(c1);
+		c2ConPocima=this.j2.aplicarPocima(c2);
 		nombreAtributo = a;
-		valorAtributoJ1 = c1.getValorAtributo(a);
-		valorAtributoJ2 = c2.getValorAtributo(a);
+		valorAtributoJ1 = c1ConPocima.getValorAtributo(a);
+		valorAtributoJ2 = c2ConPocima.getValorAtributo(a);
 		System.out.println("----------------------------------");
 		System.out.println("Ronda nro: "+this.getRondaActual());
 		System.out.println("Es el Turno de " + (this.getTurno().getNombre()));
 		System.out.println("La carta de " + this.nombreJ1 + " es " + nombreCartaJ1);
+		//System.out.println("con atributo "+ nombreAtributo+" " + c1.getValorAtributo(nombreAtributo)+" se aplicó la pocima "+
+		//c1ConPocima.getPocima().getNombre()+"con valor resultante " + valorAtributoJ1);
+		
 		System.out.println("La carta de " + this.nombreJ2 + " es " + nombreCartaJ2);
-		System.out.println("El atributo a comparar es " + nombreAtributo);
+	//	System.out.println("con atributo "+ nombreAtributo+" " + c2.getValorAtributo(nombreAtributo)+" se aplicó la pocima "+
+		//		c2.getPocima().getNombre()+"con valor resultante " + valorAtributoJ2);
+		
 		System.out.println(nombreAtributo + " jugador 1 ("+ j1.getNombre()+") :" + valorAtributoJ1);
 		System.out.println(nombreAtributo + " jugador 2 ("+j2.getNombre()+"):" + valorAtributoJ2);		
 		
-		if (c1.isMenor(a,c2)) { 			
+		if (c1ConPocima.isMenor(a,c2ConPocima)) { 			
 			this.j2.addCarta(c1); 
 			this.j2.addCarta(c2);
 			System.out.println("Gano la ronda el jugador 2(" + j2.getNombre()+")");
 			this.turno = j2;
-		}else if (c2.isMenor(a,c1)) {
+		}else if (c2ConPocima.isMenor(a,c1ConPocima)) {
 			this.j1.addCarta(c1);
 			this.j1.addCarta(c2);
 			System.out.println("Gano la ronda el jugador 1(" +j1.getNombre()+")");

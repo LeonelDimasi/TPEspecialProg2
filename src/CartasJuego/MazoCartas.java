@@ -3,16 +3,20 @@ package CartasJuego;
 import java.util.ArrayList;
 import java.util.Collections;
 
+import Pocimas.Pocima;
+
 public class MazoCartas {
 	
 	private final int PRIMERA = 0;
 	private final int ESPAR = 2;
 	private String nombreMazo;
 	private ArrayList<Carta> mazo;
+	private ArrayList<Pocima>pocimas; 
 	
 	public MazoCartas() {
 		this.nombreMazo = "";
 		this.mazo = new ArrayList<Carta>();
+		this.pocimas = new ArrayList<Pocima>();
 	}	
 	
 	public void setNombreMazo(String nombreMazo){
@@ -51,7 +55,10 @@ public class MazoCartas {
 			
 			tamaño = this.mazo.size();
 			while (i < tamaño) {
-				
+				if(!this.pocimas.isEmpty()){
+					this.mazo.get(i).addPocima(this.pocimas.get(0));
+					this.pocimas.remove(0);
+				}
 				j1.addCarta(this.mazo.get(i));
 				i++;
 				if(i < tamaño) {
@@ -116,6 +123,11 @@ public class MazoCartas {
 	
 	public ArrayList<Carta> getCartas(){
 		return new ArrayList<Carta>(this.mazo);
+	}
+
+	public void addPocima(Pocima p1) {
+		this.pocimas.add(p1);
+		
 	}
 
 }

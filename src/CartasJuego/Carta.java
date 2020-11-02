@@ -9,6 +9,7 @@ public class Carta {
 	
 	private String nombre;
 	private HashMap<String, Double> atributos;
+	private Pocima pocima;
 
 	public Carta(){ 
 		this.atributos = new HashMap<String, Double>(); 
@@ -17,6 +18,7 @@ public class Carta {
 	public Carta(String nombre,HashMap<String,Double> atributos){
 		this.nombre = nombre;
 		this.atributos = atributos; 
+		this.pocima=null;
 
 	}
 	public void setNombre (String nombre) {
@@ -26,6 +28,17 @@ public class Carta {
 	public boolean isMenor(String nombre,Carta c){
 		return this.getValorAtributo(nombre)<c.getValorAtributo(nombre);
 	}	
+	
+	public Carta copiarCarta(){
+		Carta cartaAux=new Carta();
+		for (String atributo : atributos.keySet()) {
+			cartaAux.addAtributo(atributo,atributos.get(atributo));
+			
+		}
+		cartaAux.setNombre(nombre);
+		cartaAux.addPocima(getPocima());
+		return cartaAux;
+	}
 	
 	/*public String atributoAzar() {
 		String clave = "";
@@ -96,13 +109,21 @@ public class Carta {
 	}
 	
 	public void addPocima(Pocima pocima) {
-		pocima.aplicarPocima(this);
+		this.pocima=pocima;
 	}
+	
+
 	
 	public void cambiarValorAributo(String atributo, Double valor) {
 		if(this.containAtributo(atributo)){
 			this.atributos.replace(atributo, valor);
 		}
 	}
+
+	public Pocima getPocima() {
+		return pocima;
+	}
+
+
 	
 }

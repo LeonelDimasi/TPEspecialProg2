@@ -5,18 +5,18 @@ import CartasJuego.Jugador;
 public class PocimaSelectiva extends PocimaPorcentaje{
 
 	private String atributo; 
-	private Jugador jugador;
 	
-	public PocimaSelectiva(String nombre, Double porcentaje,String atributo,Jugador jugador) {
+	public PocimaSelectiva(String nombre, Double porcentaje,String atributo) {
 		super(nombre, porcentaje);
 		this.atributo = atributo; 
-		this.jugador = jugador;
 	}
 	
 	@Override
-	public void aplicarPocima(Carta carta) {
-		if(carta.containAtributo(this.getAtributo()) && this.getJugador().getAtributoElegido().equals(this.getAtributo()) )
-		super.aplicarPocima(carta);
+	public Carta aplicarPocima(Carta carta,String atributo) {
+		Carta cartaAux=carta.copiarCarta();
+		if(cartaAux.containAtributo(this.getAtributo()) && this.getAtributo().equals(atributo))
+		super.aplicarPocima(cartaAux,atributo);
+		return cartaAux;
 	}
 	
 	public String getAtributo() {
@@ -26,15 +26,4 @@ public class PocimaSelectiva extends PocimaPorcentaje{
 	public void setAtributo(String atributo) {
 		this.atributo = atributo;
 	}
-	
-	public Jugador getJugador() {
-		return jugador;
-	}
-
-	public void setJugador(Jugador jugador) {
-		this.jugador = jugador;
-	}
-	
-	
-
 }

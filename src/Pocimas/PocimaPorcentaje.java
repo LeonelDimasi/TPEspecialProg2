@@ -14,16 +14,18 @@ public class PocimaPorcentaje extends PocimaSimple{
 	}
 
 	@Override
-	public void aplicarPocima(Carta carta) {
-		Iterator<String> it = carta.getAtributos().keySet().iterator();
+	public Carta aplicarPocima(Carta carta,String atributo) {
+		Carta cartaAux=carta.copiarCarta();
+		Iterator<String> it = cartaAux.getAtributos().keySet().iterator();
 		while(it.hasNext()) {	
 			String nombreAtributo = it.next(); 
-			Double valor = carta.getAtributos().get(nombreAtributo);
+			Double valor = cartaAux.getAtributos().get(nombreAtributo);
 			valor = valor + (valor * this.getPorcentaje())/100;
 			if(valor < 0)
 				valor=0D;
-			carta.cambiarValorAributo(nombreAtributo, valor);
+			cartaAux.cambiarValorAributo(nombreAtributo, valor);
 		}
+		return cartaAux;
 	}
 
 	public Double getPorcentaje() {
