@@ -62,7 +62,7 @@ public class Jugador {
 	public Carta aplicarPocima(Carta carta) {
 		Carta cartaAux=carta.copiarCarta();
 		if(cartaAux.getPocima()!=null){
-			cartaAux.getPocima().aplicarPocima(cartaAux,this.getAtributoElegido());
+			cartaAux=cartaAux.getPocima().aplicarPocima(cartaAux,this.getAtributoElegido());
 		}
 		return cartaAux;
 	}

@@ -19,9 +19,11 @@ public class PocimaCompuesta implements Pocima{
 	}
 	
 	public Carta aplicarPocima(Carta carta,String atributo) {
-		Carta cartaAux=carta.copiarCarta();
+		Carta cartaAux = carta.copiarCarta();
 		for(Pocima pocima: this.getPocimas()) {
-			cartaAux.addPocima(pocima);
+			
+			cartaAux = pocima.aplicarPocima(cartaAux, atributo);
+			
 		}
 		return cartaAux;
 	}

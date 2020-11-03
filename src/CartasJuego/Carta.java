@@ -109,7 +109,7 @@ public class Carta {
 	}
 	
 	public void addPocima(Pocima pocima) {
-		this.pocima=pocima;
+		this.pocima = pocima;
 	}
 	
 

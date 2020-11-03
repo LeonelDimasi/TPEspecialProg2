@@ -8,7 +8,6 @@ import Pocimas.Pocima;
 public class MazoCartas {
 	
 	private final int PRIMERA = 0;
-	private final int ESPAR = 2;
 	private String nombreMazo;
 	private ArrayList<Carta> mazo;
 	private ArrayList<Pocima>pocimas; 
@@ -52,13 +51,10 @@ public class MazoCartas {
 		int tamaño;
 		int i = 0;
 		//if (this.mazo.size() % ESPAR != 0) {
-			
+		this.addPocionesAlAzar();
 			tamaño = this.mazo.size();
 			while (i < tamaño) {
-				if(!this.pocimas.isEmpty()){
-					this.mazo.get(i).addPocima(this.pocimas.get(0));
-					this.pocimas.remove(0);
-				}
+				
 				j1.addCarta(this.mazo.get(i));
 				i++;
 				if(i < tamaño) {
@@ -126,8 +122,29 @@ public class MazoCartas {
 	}
 
 	public void addPocima(Pocima p1) {
-		this.pocimas.add(p1);
+		if(this.getTamañoMazo() >= this.pocimas.size()) {
+			this.pocimas.add(p1);
+		}else {
+			System.out.println("no se pudo agregar la pocima,no puede haber mas pocimas que cartas en el mazo");
+		}
 		
+	}
+	
+	public void addPocionesAlAzar() {
+
+		int posimasRestantes = this.pocimas.size();
+		int posima  = 0;
+		while(posimasRestantes != 0) {
+			int r= (int) (Math.random() * (this.getTamañoMazo()));
+			if(this.mazo.get(r).getPocima()==null) {
+
+				this.mazo.get(r).addPocima(pocimas.get(posima));
+				posima++;
+				posimasRestantes--;
+			}
+
+		}
+
 	}
 
 }

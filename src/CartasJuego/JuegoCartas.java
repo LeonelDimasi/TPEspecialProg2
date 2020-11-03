@@ -11,7 +11,7 @@ public class JuegoCartas {
 	private MazoCartas mazocartas;
 	private int rondaActual;
 	private int rondasMaximas;
-
+	
 	
 	public JuegoCartas(Jugador j1, Jugador j2, MazoCartas mazocartas,int rondas) {
 		this.j1 = j1;
@@ -107,12 +107,10 @@ public class JuegoCartas {
 
 		if (this.getTurno().equals(j1)) {
 			a = this.j1.elegirAtributo(c1);
-			//c1ConPocima=this.j1.aplicarPocima(c1);
-				
 		}else {	
 			a = this.j2.elegirAtributo(c2);
-			//c2ConPocima=this.j2.aplicarPocima(c2);
 		}
+		
 		c1ConPocima=this.j1.aplicarPocima(c1);
 		c2ConPocima=this.j2.aplicarPocima(c2);
 		nombreAtributo = a;
@@ -122,12 +120,14 @@ public class JuegoCartas {
 		System.out.println("Ronda nro: "+this.getRondaActual());
 		System.out.println("Es el Turno de " + (this.getTurno().getNombre()));
 		System.out.println("La carta de " + this.nombreJ1 + " es " + nombreCartaJ1);
-		//System.out.println("con atributo "+ nombreAtributo+" " + c1.getValorAtributo(nombreAtributo)+" se aplicó la pocima "+
-		//c1ConPocima.getPocima().getNombre()+"con valor resultante " + valorAtributoJ1);
+		System.out.println("con atributo "+ nombreAtributo+" " + c1.getValorAtributo(nombreAtributo));
+		if(c1.getPocima()!=null)
+		System.out.println(" se aplicó la pocima "+ c1ConPocima.getPocima().getNombre()+" con valor resultante " + valorAtributoJ1 );
 		
 		System.out.println("La carta de " + this.nombreJ2 + " es " + nombreCartaJ2);
-	//	System.out.println("con atributo "+ nombreAtributo+" " + c2.getValorAtributo(nombreAtributo)+" se aplicó la pocima "+
-		//		c2.getPocima().getNombre()+"con valor resultante " + valorAtributoJ2);
+		System.out.println("con atributo "+ nombreAtributo+" " + c2.getValorAtributo(nombreAtributo));
+		if(c2.getPocima()!=null)
+			System.out.println(" se aplicó la pocima "+ c2ConPocima.getPocima().getNombre()+" con valor resultante " + valorAtributoJ2 );
 		
 		System.out.println(nombreAtributo + " jugador 1 ("+ j1.getNombre()+") :" + valorAtributoJ1);
 		System.out.println(nombreAtributo + " jugador 2 ("+j2.getNombre()+"):" + valorAtributoJ2);		

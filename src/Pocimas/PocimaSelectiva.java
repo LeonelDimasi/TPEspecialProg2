@@ -1,6 +1,5 @@
 package Pocimas;
 import CartasJuego.Carta;
-import CartasJuego.Jugador;
 
 public class PocimaSelectiva extends PocimaPorcentaje{
 
@@ -15,7 +14,7 @@ public class PocimaSelectiva extends PocimaPorcentaje{
 	public Carta aplicarPocima(Carta carta,String atributo) {
 		Carta cartaAux=carta.copiarCarta();
 		if(cartaAux.containAtributo(this.getAtributo()) && this.getAtributo().equals(atributo))
-		super.aplicarPocima(cartaAux,atributo);
+			cartaAux=super.aplicarPocima(cartaAux,atributo);
 		return cartaAux;
 	}
 	
