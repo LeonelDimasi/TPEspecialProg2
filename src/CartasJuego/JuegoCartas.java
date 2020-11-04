@@ -27,7 +27,7 @@ public class JuegoCartas {
 		this.rondasMaximas=rondas;
 	}
 	
-	private int getRondas() {	
+	public int getRondas() {	
 		return this.rondasMaximas;
 	}
 	
