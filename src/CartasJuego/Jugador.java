@@ -1,7 +1,7 @@
 package CartasJuego;
 
 import EstrategiaJugador.Estrategia;
-import Pocimas.Pocima;
+
 
 public class Jugador {
 	

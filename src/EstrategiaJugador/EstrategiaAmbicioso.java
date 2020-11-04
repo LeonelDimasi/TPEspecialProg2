@@ -4,7 +4,7 @@ import java.util.Iterator;
 
 import CartasJuego.Carta;
 
-public class EstrategiaAmbicioso extends Estrategia{
+public class EstrategiaAmbicioso extends Estrategia {
 
 	private String nombre;
 	
@@ -15,8 +15,6 @@ public class EstrategiaAmbicioso extends Estrategia{
 	public String getNombre() {
 		return nombre;
 	}
-
-	
 
 	@Override
 	public String getAtributo(Carta c) {
