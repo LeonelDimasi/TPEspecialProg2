@@ -130,7 +130,7 @@ public class MazoCartas {
 		
 	}
 	
-	public void addPocionesAlAzar() {
+	private void addPocionesAlAzar() {
 
 		int posimasRestantes = this.pocimas.size();
 		int posima  = 0;
